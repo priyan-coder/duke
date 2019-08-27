@@ -5,25 +5,32 @@
 // if the user says done 2 -- > we
 
 public class task {
-    private boolean done = false;
-    private char status = '\u2716'; //cross
-    private String todo = " ";
+    protected boolean done = false; // is it done yet ?
+    protected char status = '\u2716'; //cross
+    protected String todo = " "; // description
 
-    public void changeStatus ( ){
+    //markAsDone
+    public void markAsDone ( ){
         this.done = true;
         this.status = '\u2714'; // tick
     }
 
+    // constructor to set the todo
+    public task(String todo) {
+        this.todo = todo;
+    }
+    // returns the description of the todo
     public String getTodo() {
         return todo;
     }
 
+    //check if tick or cross
     public char getStatus() {
         return status;
     }
 
+    //changes the description of the todo
     public void setTodo(String todo) {
         this.todo = todo;
-
     }
 }

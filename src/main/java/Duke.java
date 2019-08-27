@@ -20,6 +20,7 @@ public class Duke {
 
         while (true) {
             String line = sc.nextLine();
+            // doneLine refers to the user input which is something like  done 2
             String[] doneLine = line.split(" "); // delimiter --> so for every " " breaks up and adds to the array of strings
 
 
@@ -28,37 +29,26 @@ public class Duke {
                 todoList.clear();
                 break;
             }else if (line.toLowerCase().equals("list")){
-
                 System.out.println(straightLine);
                 System.out.println( "  Here are the tasks in your list: \n");
-
                 for(int i = 0; i < todoList.size(); ++i){
                     System.out.println((i+1) + ". " + "[" +todoList.get(i).getStatus()+"] "+todoList.get(i).getTodo());
                 }
-
                 System.out.println(straightLine);
-
             }else if ( doneLine[0].equals("done")){
                 int index = Integer.parseInt(doneLine[1]) -1;
-                todoList.get(index).changeStatus();
+                todoList.get(index).markAsDone();
                 System.out.println(straightLine);
                 System.out.println("Nice! I've marked this task as done: \n" + (index+1) + ". " + "[" +todoList.get(index).getStatus()+"] "+todoList.get(index).getTodo());
                 System.out.println(straightLine);
-
             }
 
             else{
-                task Todo = new task();
-                Todo.setTodo(line);
+                task Todo = new task(line);
                 todoList.add(Todo);
-                System.out.println(straightLine +
-                        "     added: " + line + " \n" +
-                        straightLine +
-                        "\n");
+                System.out.println(straightLine + "     added: " + line + " \n" + straightLine + "\n");
             }
-
         }
-
         sc.close();
     }
 }
