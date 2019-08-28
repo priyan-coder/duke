@@ -4,14 +4,14 @@ public class Duke {
     public static String straightLine = "____________________________________________________________ \n";
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws dukeException {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
                 + "| | | | | | | |/ / _ \\\n"
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
 
-        System.out.println(logo + "\n"+ "Hello! I'm Duke\n" +
+        System.out.println(logo + "\n" + "Hello! I'm Duke\n" +
                 "     What can I do for you?\n");
 
 
@@ -25,11 +25,17 @@ public class Duke {
         // convert to a linked list
         // remove the first word (type of task )  --> join the rest of it as a task
         // again split the remaining words based on "/at" or "/by"
+
+        //try{
+        //whole block of code --> in between have if statements for different error and throw the messages needed
+        //catch ( initialise ex object ){
+        //print the message }
+
         while (true) {
             String line = sc.nextLine();
             // doneLine refers to the user input which is something like  done 2
             String[] doneLine = line.split(" "); // delimiter --> so for every " " breaks up and adds to the array of strings
-
+            try{
             if (line.toLowerCase().equals("bye")) {
                 System.out.println(" Bye. Hope to see you again soon!\n");
                 todoList.clear();
@@ -51,7 +57,7 @@ public class Duke {
                 System.out.println("Nice! I've marked this task as done: \n"
                         + todoList.get(index).getStatus() + todoList.get(index).icon + " " + todoList.get(index).getTodo());
                 System.out.println(straightLine);
-            } else {
+            } else  {
                 String typeOfTask = doneLine[0];
 
                 if (typeOfTask.toLowerCase().equals("todo")) {
@@ -59,6 +65,9 @@ public class Duke {
                     fullDetailOfTask.remove(0);
                     String temp = String.join(" ", fullDetailOfTask);
                     task TODO = new task(temp);
+                    if (temp.length() == 0) {
+                        throw new dukeException("☹ OOPS!!! The description of a todo cannot be empty.\n");
+                    }
                     todoList.add(TODO);
                     System.out.println(straightLine +
                             "  Got it. I've added this task: \n " +
@@ -70,6 +79,10 @@ public class Duke {
                     List<String> fullDetailOfTask = new LinkedList<>(Arrays.asList(doneLine));
                     fullDetailOfTask.remove(0);
                     String temp = String.join(" ", fullDetailOfTask);
+                    // nothing written after deadLine
+                    if (temp.length() == 0) {
+                        throw new dukeException("☹ OOPS!!! The description of a deadline cannot be empty.\n");
+                    }
                     String[] actualTask = temp.split("/by");
                     deadline DEADLINE = new deadline(actualTask[0], actualTask[1]);
                     todoList.add(DEADLINE);
@@ -83,6 +96,9 @@ public class Duke {
                     List<String> fullDetailOfTask = new LinkedList<>(Arrays.asList(doneLine));
                     fullDetailOfTask.remove(0);
                     String temp = String.join(" ", fullDetailOfTask);
+                    if (temp.length() == 0) {
+                        throw new dukeException(" ☹ OOPS!!! The description of an event cannot be empty.\n");
+                    }
                     String[] actualTask = temp.split("/at");
                     event EVENT = new event(actualTask[0], actualTask[1]);
                     todoList.add(EVENT);
@@ -92,8 +108,15 @@ public class Duke {
                             "  Now you have " + todoList.size() + " " + "tasks in the list.\n" +
                             straightLine + "\n");
                 }
+                else{
+                    throw new dukeException(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n");
+                }
+            }
+        }catch(dukeException EX){
+                System.out.println(EX.getMessage());
             }
         }
+
         sc.close();
     }
 
