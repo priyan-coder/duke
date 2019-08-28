@@ -6,13 +6,15 @@
 
 public class task {
     protected boolean done = false; // is it done yet ?
-    protected char status = '\u2716'; //cross
+    protected char status = '\u2718'; //cross
     protected String todo = " "; // description
+    protected String icon = "[T]"; // the kind of task --> this is a todo
+
 
     //markAsDone
     public void markAsDone ( ){
         this.done = true;
-        this.status = '\u2714'; // tick
+        this.status = '\u2713'; // tick
     }
 
     // constructor to set the todo
@@ -25,12 +27,13 @@ public class task {
     }
 
     //check if tick or cross
-    public char getStatus() {
-        return status;
+    public String getStatus() {
+        return "[" + status +"]";
     }
 
     //changes the description of the todo
     public void setTodo(String todo) {
         this.todo = todo;
     }
+
 }
