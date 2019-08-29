@@ -6,7 +6,7 @@ public class dateAndTime {
 
     public Date getDateAndTime(String userInput) throws ParseException {
 //        String[] pattern = {"yyyy-MM-dd HH:mm:ss", "dd-MM-yy", "dd-MM-yyyy", "MM-dd-yyyy", "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss"};
-        String pattern = "dd-MMM-yyyy HH:mm:ss";
+        String pattern = "dd-MM-yyyy HH:mm:ss";
 
 //        int i = 0;
 //        Date dateAndTime = null;
@@ -16,7 +16,7 @@ public class dateAndTime {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             dateAndTime = simpleDateFormat.parse(userInput);
         } catch (Exception ex) {
-            System.out.println("ENTER IN THE FOLLOWING FORMAT --> dd-MMM-yyyy HH:mm:ss");
+            System.out.println("ENTER IN THE FOLLOWING FORMAT --> dd-MM-yyyy HH:mm:ss");
         }
         return dateAndTime;
     }

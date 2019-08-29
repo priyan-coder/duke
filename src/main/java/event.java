@@ -13,7 +13,7 @@ public class event extends task {
     }
 
     public String getAt() {
-        return " (at: " + at+ ")";
+        return " (at: " + this.DateAndTime.toString()+ ")";
     }
 
     @Override

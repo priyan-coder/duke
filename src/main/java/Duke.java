@@ -91,7 +91,7 @@ public class Duke {
                         }
                         String[] actualTask = temp.split("/by");
                         deadline DEADLINE = new deadline(actualTask[0], actualTask[1]);
-                        DEADLINE.setDateAndTime(dateAndTimeHandler.getDateAndTime(actualTask[1]););
+                        DEADLINE.setDateAndTime(dateAndTimeHandler.getDateAndTime(actualTask[1]));
                         todoList.add(DEADLINE);
 
                         System.out.println(straightLine +

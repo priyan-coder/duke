@@ -11,7 +11,7 @@ public class deadline extends task {
     }
 
     public String getBy() {
-        return " (by: " + by + ")";
+        return " (by: " + this.dateAndTime.toString() + ")";
     }
 
     @Override
