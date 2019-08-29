@@ -2,6 +2,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.text.ParseException;
 import java.util.*;
 
 public class Duke {
@@ -11,6 +12,7 @@ public class Duke {
     protected static String EMPTY_EVENT_DESC ="☹ OOPS!!! The description of an event cannot be empty.\n";
     protected static String EMPTY_TODO_DESC = "☹ OOPS!!! The description of a todo cannot be empty.\n" ;
     protected static String EMPTY_DEAD_DESC = "☹ OOPS!!! The description of a deadline cannot be empty.\n";
+    protected static dateAndTime dateAndTimeHandler = new dateAndTime();
 
     public static void main(String[] args) throws dukeException {
         String logo = " ____        _        \n"
@@ -89,7 +91,9 @@ public class Duke {
                         }
                         String[] actualTask = temp.split("/by");
                         deadline DEADLINE = new deadline(actualTask[0], actualTask[1]);
+                        DEADLINE.setDateAndTime(dateAndTimeHandler.getDateAndTime(actualTask[1]););
                         todoList.add(DEADLINE);
+
                         System.out.println(straightLine +
                                 "  Got it. I've added this task: \n " +
                                 "   " + DEADLINE.toString() + " \n" +
@@ -121,7 +125,7 @@ public class Duke {
                     System.out.println(Io.getMessage());
                 }
 
-            } catch (dukeException EX) {
+            } catch (dukeException | ParseException EX) {
                 System.out.println(EX.getMessage());
             }
         }

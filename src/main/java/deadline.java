@@ -1,5 +1,8 @@
+import java.util.Date;
+
 public class deadline extends task {
     protected String by; // the deadline
+    protected Date dateAndTime;
 
     public deadline(String todo, String by) {
         super(todo);
@@ -14,5 +17,9 @@ public class deadline extends task {
     @Override
     public String toString() {
         return super.toString() + this.getBy();
+    }
+
+    public void setDateAndTime(Date dateAndTime) {
+        this.dateAndTime = dateAndTime;
     }
 }
