@@ -4,7 +4,13 @@
 // status whether done or not done
 // if the user says done 2 -- > we
 
-public class task {
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.LinkedList;
+
+public class task implements Serializable {
     protected boolean done = false; // is it done yet ?
     protected char status = '\u2718'; //cross
     protected String todo = " "; // description
@@ -35,5 +41,12 @@ public class task {
     public void setTodo(String todo) {
         this.todo = todo;
     }
+
+    public String toString(){
+        return this.getStatus() +  this.icon + " " + this.getTodo();
+    }
+
+
+
 
 }

@@ -10,4 +10,9 @@ public class deadline extends task {
     public String getBy() {
         return " (by: " + by + ")";
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + this.getBy();
+    }
 }

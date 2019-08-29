@@ -1,3 +1,6 @@
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 public class event extends task {
 
     protected String at; // duration
@@ -10,5 +13,10 @@ public class event extends task {
 
     public String getAt() {
         return " (at: " + at+ ")";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + this.getAt();
     }
 }
