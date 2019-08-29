@@ -107,6 +107,9 @@ public class Duke {
                         }
                         String[] actualTask = temp.split("/at");
                         event EVENT = new event(actualTask[0], actualTask[1]);
+                        String [] duration = actualTask[1].split("-");
+                        EVENT.time_1 = dateAndTimeHandler.getDateAndTime(duration[0]).toString();
+                        EVENT.time_2 = dateAndTimeHandler.getDateAndTime(duration[1]).toString();
                         todoList.add(EVENT);
                         System.out.println(straightLine +
                                 "  Got it. I've added this task: \n " +

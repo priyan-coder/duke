@@ -4,7 +4,8 @@ import java.io.ObjectOutputStream;
 public class event extends task {
 
     protected String at; // duration
-    protected dateAndTime DateAndTime;
+    protected String time_1;
+    protected String time_2;
 
     public event(String todo, String at) {
         super(todo);
@@ -13,7 +14,7 @@ public class event extends task {
     }
 
     public String getAt() {
-        return " (at: " + this.DateAndTime.toString()+ ")";
+        return " (at: " + this.time_1 + " to " + this.time_2 + ")";
     }
 
     @Override
@@ -21,7 +22,4 @@ public class event extends task {
         return super.toString() + this.getAt();
     }
 
-    public void setDateAndTime(dateAndTime dateAndTime) {
-        DateAndTime = dateAndTime;
-    }
 }
