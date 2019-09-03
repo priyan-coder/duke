@@ -9,8 +9,8 @@ public class Duke {
     protected static String straightLine = "____________________________________________________________ \n";
     protected static List<task> todoList = new ArrayList<>();
     protected static String UNKNOWN_INPUT = " ☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n";
-    protected static String EMPTY_EVENT_DESC ="☹ OOPS!!! The description of an event cannot be empty.\n";
-    protected static String EMPTY_TODO_DESC = "☹ OOPS!!! The description of a todo cannot be empty.\n" ;
+    protected static String EMPTY_EVENT_DESC = "☹ OOPS!!! The description of an event cannot be empty.\n";
+    protected static String EMPTY_TODO_DESC = "☹ OOPS!!! The description of a todo cannot be empty.\n";
     protected static String EMPTY_DEAD_DESC = "☹ OOPS!!! The description of a deadline cannot be empty.\n";
     protected static dateAndTime dateAndTimeHandler = new dateAndTime();
 
@@ -69,10 +69,17 @@ public class Duke {
                     int index = Integer.parseInt(doneLine[1]) - 1;
                     System.out.println(straightLine +
                             " Noted. I've removed this task: \n " +
-                            "   " + todoList.get(index).toString()+ " \n" +
-                            "  Now you have " + (todoList.size() -1) + " " + "tasks in the list.\n" +
+                            "   " + todoList.get(index).toString() + " \n" +
+                            "  Now you have " + (todoList.size() - 1) + " " + "tasks in the list.\n" +
                             straightLine + "\n");
                     todoList.remove(index);
+                } else if (doneLine[0].equals("find")) {
+                    System.out.println("Here are the matching tasks in your list:");
+                    for (int i = 0; i < todoList.size(); i++) {
+                        if (todoList.get(i).getTodo().contains(doneLine[1])) {
+                            System.out.println((i + 1) + ". " + todoList.get(i).toString());
+                        }
+                    }
 
                 } else {
                     // String Parsing
@@ -90,7 +97,7 @@ public class Duke {
                         todoList.add(TODO);
                         System.out.println(straightLine +
                                 "  Got it. I've added this task: \n " +
-                                "   " + TODO.toString()+ " \n" +
+                                "   " + TODO.toString() + " \n" +
                                 "  Now you have " + todoList.size() + " " + "tasks in the list.\n" +
                                 straightLine + "\n");
 
@@ -117,7 +124,7 @@ public class Duke {
                         }
                         String[] actualTask = temp.split("/at");
                         event EVENT = new event(actualTask[0], actualTask[1]);
-                        String [] duration = actualTask[1].split("-");
+                        String[] duration = actualTask[1].split("-");
                         EVENT.time_1 = dateAndTimeHandler.getDateAndTime(duration[0]).toString();
                         EVENT.time_2 = dateAndTimeHandler.getDateAndTime(duration[1]).toString();
                         todoList.add(EVENT);
