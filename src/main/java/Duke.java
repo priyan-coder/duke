@@ -59,11 +59,21 @@ public class Duke {
 
                 } else if (doneLine[0].equals("done")) {
                     int index = Integer.parseInt(doneLine[1]) - 1;
-                    todoList.get(index).markAsDone();
+                    todoList.remove(index);
                     System.out.println(straightLine);
-                    System.out.println("Nice! I've marked this task as done: \n"
+                    System.out.println("Noted! I've removed this task as done: \n"
                             + todoList.get(index).toString());
                     System.out.println(straightLine);
+
+                } else if (doneLine[0].equals("delete")) {
+                    int index = Integer.parseInt(doneLine[1]) - 1;
+                    System.out.println(straightLine +
+                            " Noted. I've removed this task: \n " +
+                            "   " + todoList.get(index).toString()+ " \n" +
+                            "  Now you have " + (todoList.size() -1) + " " + "tasks in the list.\n" +
+                            straightLine + "\n");
+                    todoList.remove(index);
+
                 } else {
                     // String Parsing
                     String typeOfTask = doneLine[0];
