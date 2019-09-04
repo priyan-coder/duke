@@ -1,7 +1,7 @@
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-public class event extends task {
+public class event extends todo {
 
     protected String at; // duration
     protected String time_1;

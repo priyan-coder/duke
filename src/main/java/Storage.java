@@ -3,18 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class dataHandler {
+public class Storage {
 
-    public static List<task> loader() throws IOException, ClassNotFoundException {
+    public static List<todo> loader() throws IOException, ClassNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "taskData.txt");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-        List<task> todoList = (List<task>) objectInputStream.readObject();
+        List<todo> todoList = (List<todo>) objectInputStream.readObject();
         objectInputStream.close();
         return todoList;
     }
 
 
-    public static void writer(List<task> todoList) throws IOException {
+    public static void writer(List<todo> todoList) throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(System.getProperty("user.dir") + "taskData.txt");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(todoList);

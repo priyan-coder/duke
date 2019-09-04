@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class deadline extends task {
+public class deadline extends todo {
     protected String by; // the deadline
     protected Date dateAndTime;
 
