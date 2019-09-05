@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+// Parses the input and splits based on the type of task
 public class Parser {
 
     Ui ui = new Ui();
@@ -14,7 +15,7 @@ public class Parser {
     protected String by = " ";
     protected String at = " ";
     protected String taskDescription = " ";
-    protected int index = 0;
+    protected int index = -1;
     protected String searchTaskDescription = " ";
     protected String[] duration = {};
 
@@ -34,43 +35,46 @@ public class Parser {
     // Based on input getting the by or at and the task description ready for passing to the required kind of task
     public void createTask() throws dukeException {
         if (this.typeOfTask.equals("deadline")) {
-
             String[] actualTask = this.temp.split("/by");
             try {
-                if (actualTask.length == 1) {
-                    throw new dukeException(ui.getEMPTY_DEAD_DESC());
-                } else {
-                    this.by = actualTask[1];
-                    this.taskDescription = actualTask[0];
-                }
+                this.by = actualTask[1];
+                this.taskDescription = actualTask[0];
             } catch (Exception E) {
-                System.out.println(E.getMessage());
+
             }
 
         } else if (this.typeOfTask.equals("event")) {
             String[] actualTask = this.temp.split("/at");
             try {
-                if (actualTask.length == 1) {
-                    throw new dukeException(ui.getEMPTY_EVENT_DESC());
-                } else {
-                    this.at = actualTask[1];
-                    this.taskDescription = actualTask[0];
-                    this.duration = actualTask[1].split("-");
-                }
+                this.at = actualTask[1];
+                this.taskDescription = actualTask[0];
+                this.duration = actualTask[1].split("-");
+
             } catch (Exception E) {
-                System.out.println(E.getMessage());
+
             }
 
         } else if (this.typeOfTask.equals("todo")) {
             this.taskDescription = this.temp;
 
         } else if (this.typeOfTask.equals("done")) {
-            this.index = Integer.parseInt(this.doneLine[1]) - 1;
+            try {
+                this.index = Integer.parseInt(this.doneLine[1]) - 1;
+            } catch (Exception E) {
+
+            }
 
         } else if (this.typeOfTask.equals("find")) {
-            this.searchTaskDescription = this.doneLine[1];
+            try {
+                this.searchTaskDescription = this.doneLine[1];
+            } catch (Exception E) {
+            }
         } else if (this.typeOfTask.equals("delete")) {
-            this.index = Integer.parseInt(this.doneLine[1]) - 1;
+            try {
+                this.index = Integer.parseInt(this.doneLine[1]) - 1;
+            } catch (Exception E) {
+
+            }
         }
     }
 

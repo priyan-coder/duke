@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+// Class handles exceptions and operations of the todoList.
 public class TaskList {
 
     Ui ui = new Ui();
@@ -18,7 +19,10 @@ public class TaskList {
         ui.getSLine();
     }
 
-    public void taskDone(List<todo> todoList, int index) {
+    public void taskDone(List<todo> todoList, int index) throws dukeException {
+        if (index == -1) {
+            throw new dukeException(ui.getINCORRECT_DONE_FORMAT());
+        }
         todoList.get(index).markAsDone();
         ui.getSLine();
         ui.doneTask();
@@ -26,7 +30,10 @@ public class TaskList {
         ui.getSLine();
     }
 
-    public void deleteTask(List<todo> todoList, int index) {
+    public void deleteTask(List<todo> todoList, int index) throws dukeException {
+        if (index == -1) {
+            throw new dukeException(ui.getINCORRECT_DELETE_FORMAT());
+        }
         ui.getSLine();
         ui.removedTask();
         System.out.println("   " + todoList.get(index).toString() + " \n" +
@@ -35,7 +42,10 @@ public class TaskList {
         todoList.remove(index);
     }
 
-    public void findTask(List<todo> todoList, String searchTask) {
+    public void findTask(List<todo> todoList, String searchTask) throws dukeException {
+        if (searchTask.equals(" ")) {
+            throw new dukeException(ui.getINCORRECT_FIND_FORMAT());
+        }
         ui.findTask();
         for (int i = 0; i < todoList.size(); i++) {
             if (todoList.get(i).getDescription().contains(searchTask)) {
@@ -60,8 +70,6 @@ public class TaskList {
     public void addDeadline(List<todo> todoList, String taskDescription, String by) throws dukeException, ParseException {
         if (taskDescription.equals(" ") && by.equals(" ")) {
             throw new dukeException(ui.getEMPTY_DEAD_DESC());
-        } else if (!taskDescription.equals(" ") && by.equals(" ")) {
-            throw new dukeException(ui.getWRONG_DATE_AND_TIME_FORMAT());
         } else {
             deadline DEADLINE = new deadline(taskDescription, by);
             DEADLINE.setDateAndTime(dateAndTimeHandler.getDateAndTime(by));

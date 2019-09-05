@@ -15,10 +15,19 @@ public class Ui {
 
     protected String straightLine = "____________________________________________________________ \n";
     protected String UNKNOWN_INPUT = " ☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n";
-    protected String EMPTY_EVENT_DESC = "☹ OOPS!!! The description of an event cannot be empty.\n";
-    protected String EMPTY_TODO_DESC = "☹ OOPS!!! The description of a todo cannot be empty.\n";
-    protected String EMPTY_DEAD_DESC = "☹ OOPS!!! The description of a deadline cannot be empty.\n";
-    protected String WRONG_DATE_AND_TIME_FORMAT = "ENTER IN THE FOLLOWING FORMAT --> dd/MM/yyyy HH:mm\n";
+    protected String EMPTY_EVENT_DESC = "☹ OOPS!!! The description of an event cannot be empty.\n" +
+            "ENTER IN THE FOLLOWING FORMAT --> e.g event attend sep talk /at 23/12/2019 1700 - 23/12/2019 1800\n";
+    protected String EMPTY_TODO_DESC = "☹ OOPS!!! The description of a todo cannot be empty.\n" +
+            "ENTER IN THE FOLLOWING FORMAT --> e.g todo return book ";
+    protected String EMPTY_DEAD_DESC = "☹ OOPS!!! The description of a deadline cannot be empty.\n" +
+            "ENTER IN THE FOLLOWING FORMAT --> e.g deadline eat lunch /by 5/9/2019 1200\n";
+    protected String WRONG_DATE_AND_TIME_FORMAT = "ENTER IN THE FOLLOWING FORMAT --> d/M/y HHmm\n";
+    protected String INCORRECT_DONE_FORMAT = "CHOOSE A TASK TO MARK AS DONE --->  e.g done 3 \n";
+    protected String INCORRECT_DELETE_FORMAT = "EITHER LIST IS EMPTY OR YOUR ENTRY FORMAT IS WRONG \n" +
+            "ENTER IN THE FOLLOWING FORMAT ---> e.g delete 3";
+    protected String INCORRECT_FIND_FORMAT = "EITHER THE TASK SEARCHED DOESN'T EXIST OR ENTRY FORMAT IS WRONG \n" +
+            "ENTER IN THE FOLLOWING FORMAT ---> e.g. find book\n";
+
 
     public String getLogo() {
         return logo;
@@ -75,6 +84,18 @@ public class Ui {
 
     public String getWRONG_DATE_AND_TIME_FORMAT() {
         return WRONG_DATE_AND_TIME_FORMAT;
+    }
+
+    public String getINCORRECT_DONE_FORMAT() {
+        return INCORRECT_DONE_FORMAT;
+    }
+
+    public String getINCORRECT_DELETE_FORMAT() {
+        return INCORRECT_DELETE_FORMAT;
+    }
+
+    public String getINCORRECT_FIND_FORMAT() {
+        return INCORRECT_FIND_FORMAT;
     }
 }
 
