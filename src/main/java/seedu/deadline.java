@@ -1,3 +1,5 @@
+package seedu;
+
 import java.util.Date;
 
 public class deadline extends todo {

@@ -1,6 +1,6 @@
+package seedu;
+
 import java.text.ParseException;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 // Class handles exceptions and operations of the todoList.
@@ -14,7 +14,7 @@ public class TaskList {
         ui.listTasks();
         for (int i = 0; i < todoList.size(); ++i) {
             System.out.println(
-                    (i + 1) + ". " + todoList.get(i).toString());
+                    (i + 1) + " " + todoList.get(i).toString());
         }
         ui.getSLine();
     }
@@ -49,7 +49,7 @@ public class TaskList {
         ui.findTask();
         for (int i = 0; i < todoList.size(); i++) {
             if (todoList.get(i).getDescription().contains(searchTask)) {
-                System.out.println((i + 1) + ". " + todoList.get(i).toString());
+                System.out.println((i + 1) + " " + todoList.get(i).toString());
             }
         }
     }
@@ -87,7 +87,7 @@ public class TaskList {
 
     public void addEvent(List<todo> todoList, String taskDescription, String at, String duration[]) throws dukeException, ParseException {
 
-        if (taskDescription.equals(" ") || at.equals(" ")) {
+        if (taskDescription.equals(" ") || at.equals(" ") || duration.length !=2 ) {
             throw new dukeException(ui.getEMPTY_EVENT_DESC());
         } else {
             event EVENT = new event(taskDescription, at);

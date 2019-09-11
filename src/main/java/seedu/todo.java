@@ -1,4 +1,4 @@
-// every non list / non bye is a task
+package seedu;// every non list / non bye is a task
 // add to the arrayList of task
 // each task has a status
 // status whether done or not done

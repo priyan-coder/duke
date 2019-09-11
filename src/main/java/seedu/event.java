@@ -1,5 +1,4 @@
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+package seedu;
 
 public class event extends todo {
 

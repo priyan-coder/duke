@@ -1,7 +1,6 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+package seedu;
+
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.text.ParseException;
 import java.util.*;
 
