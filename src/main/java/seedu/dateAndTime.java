@@ -4,6 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This class assists with sensing the date and time entered and understanding it
+ */
 public class dateAndTime {
 
     public Date getDateAndTime(String userInput) throws ParseException {

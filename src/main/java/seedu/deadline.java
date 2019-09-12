@@ -2,6 +2,9 @@ package seedu;
 
 import java.util.Date;
 
+/**
+ * This class handles deadline
+ */
 public class deadline extends todo {
     protected String by; // the deadline
     protected Date dateAndTime;

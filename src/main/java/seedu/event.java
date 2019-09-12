@@ -1,5 +1,8 @@
 package seedu;
 
+/**
+ * Event class which handles events
+ */
 public class event extends todo {
 
     protected String at; // duration

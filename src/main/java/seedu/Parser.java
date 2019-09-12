@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-// Parses the input and splits based on the type of task
+/**
+ * Parses the input and splits based on the type of task
+ */
+
 public class Parser {
 
     Ui ui = new Ui();

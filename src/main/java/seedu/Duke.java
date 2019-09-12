@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
 
+/**
+ * This class is the main Duke class
+ */
 public class Duke {
 
     protected static List<todo> todoList;

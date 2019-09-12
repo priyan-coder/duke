@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This Ui class is responsible for the user interaction messages which we see
+ */
 public class Ui {
 
     protected String logo = " ____        _        \n"

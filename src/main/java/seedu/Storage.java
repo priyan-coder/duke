@@ -3,6 +3,9 @@ package seedu;
 import java.io.*;
 import java.util.List;
 
+/**
+ * File Input Output being handled by this
+ */
 public class Storage {
 
     public static List<todo> loader() throws IOException, ClassNotFoundException {

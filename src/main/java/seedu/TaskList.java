@@ -3,7 +3,10 @@ package seedu;
 import java.text.ParseException;
 import java.util.List;
 
-// Class handles exceptions and operations of the todoList.
+/**
+ * Tasklist Class handles exceptions and operations of the todoList.
+ */
+
 public class TaskList {
 
     Ui ui = new Ui();

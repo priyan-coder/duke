@@ -10,6 +10,9 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 
+/**
+ * todo class contains the methods for the todo
+ */
 public class todo implements Serializable {
     protected boolean done = false; // is it done yet ?
     protected char status = '\u2718'; //cross
