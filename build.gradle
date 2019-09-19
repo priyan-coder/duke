@@ -20,7 +20,7 @@ repositories {
 
 application {
     // Change this to your main class.
-    mainClassName = "main.java.Duke"
+    mainClassName = "src.main.java.Duke"
     // They've already done the build configuration for you
 
 }
